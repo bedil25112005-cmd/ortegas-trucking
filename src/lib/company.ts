@@ -81,7 +81,7 @@ export const company: CompanyConfig = {
   tagline: "Reliable Freight. Professional Service.",
   phone: "(904) 908-7895",
   phoneRaw: "+19049087895",
-  email: "info@ortega.org",
+  email: "info@ortegastrucking.online",
   address: {
     street: "14855 PRICHARD ST",
     city: "LA PUENTE",

@@ -46,6 +46,7 @@ export const App: React.FC = () => {
         isOpen={legalModalType !== null}
         type={legalModalType}
         onClose={() => setLegalModalType(null)}
+        onSwitchType={(type) => setLegalModalType(type)}
       />
     </div>
   );

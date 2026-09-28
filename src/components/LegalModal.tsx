@@ -6,9 +6,10 @@ interface LegalModalProps {
   isOpen: boolean;
   type: 'privacy' | 'terms' | null;
   onClose: () => void;
+  onSwitchType?: (type: 'privacy' | 'terms') => void;
 }
 
-export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, type, onClose }) => {
+export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, type, onClose, onSwitchType }) => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -40,7 +41,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, type, onClose })
               <FileText className="w-5 h-5 text-brand-blue" />
             )}
             <h3 className="text-lg font-bold text-brand-dark-900">
-              {type === 'privacy' ? 'Privacy Policy' : 'Terms & Conditions'}
+              {type === 'privacy' ? 'Privacy Policy' : 'Terms and Conditions for SMS Communications'}
             </h3>
           </div>
 
@@ -82,27 +83,156 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, type, onClose })
             </>
           ) : (
             <>
+              <h3 className="text-lg font-bold text-brand-dark-900 pb-1">
+                Terms and Conditions for SMS Communications
+              </h3>
+
+              <h4 className="text-base font-bold text-brand-dark-900 pt-2">
+                1. SMS Consent and Privacy
+              </h4>
               <p>
-                <strong>Effective Date:</strong> January 1, 2026
+                By providing your mobile phone number and submitting the SMS consent form on our website, you agree to receive SMS text messages from ORTEGA'S TRUCKING LLC related to delivery notifications, order updates, shipment information, service alerts, and compliance-related communications.
               </p>
               <p>
-                Please review these Terms & Conditions carefully before using the <strong>{company.website}</strong> website operated by {company.name}.
+                Mobile opt-in data and consent information will not be shared with third parties or affiliates for marketing or promotional purposes. No mobile information will be shared with third parties for their own marketing use.
               </p>
-              <h4 className="text-base font-bold text-brand-dark-900 pt-2">1. Acceptance of Terms</h4>
               <p>
-                By accessing or browsing this website, you agree to comply with and be bound by these Terms & Conditions and all applicable laws and regulations.
+                For more information about how we collect, use, and protect your information, please review our{' '}
+                {onSwitchType ? (
+                  <button
+                    type="button"
+                    onClick={() => onSwitchType('privacy')}
+                    className="text-brand-blue hover:underline cursor-pointer"
+                  >
+                    Privacy Policy
+                  </button>
+                ) : (
+                  'Privacy Policy'
+                )}.
               </p>
-              <h4 className="text-base font-bold text-brand-dark-900 pt-2">2. Transportation & Freight Inquiries</h4>
+
+              <h4 className="text-base font-bold text-brand-dark-900 pt-2">
+                2. How to Opt-In
+              </h4>
               <p>
-                Website content is provided for informational and business inquiry purposes. Submitting a rate request or driver inquiry does not constitute a binding contract until formal logistics agreements are executed.
+                You can opt in to receive SMS messages from ORTEGA'S TRUCKING LLC by visiting our website and completing the form where a phone number is requested.
               </p>
-              <h4 className="text-base font-bold text-brand-dark-900 pt-2">3. Intellectual Property</h4>
               <p>
-                All content, trademarks, logos, and materials on this website are the property of {company.name} and protected by applicable copyright and trademark laws.
+                The specific mobile opt-in path is: Visit our website, open the contact/application form, enter your mobile phone number, check the SMS consent checkbox, and submit the form.
               </p>
-              <h4 className="text-base font-bold text-brand-dark-900 pt-2">4. Governing Law</h4>
               <p>
-                These terms are governed by and construed in accordance with the laws of the State of California and applicable federal regulations.
+                The SMS consent checkbox is not pre-selected. You must manually select the checkbox to give consent to receive SMS messages.
+              </p>
+
+              <h4 className="text-base font-bold text-brand-dark-900 pt-2">
+                3. Types of SMS Messages
+              </h4>
+              <p>
+                If you consent to receive SMS messages from ORTEGA'S TRUCKING LLC, you may receive messages such as:
+              </p>
+              <ul className="list-disc pl-5 space-y-1">
+                <li>Delivery notifications</li>
+                <li>Shipment updates</li>
+                <li>Service-related notifications</li>
+                <li>Order or load updates</li>
+                <li>Compliance-related communications</li>
+              </ul>
+
+              <h4 className="text-base font-bold text-brand-dark-900 pt-2">
+                4. Message Frequency
+              </h4>
+              <p>
+                Message frequency may vary depending on your communication needs, account activity, service status, or shipment activity. You may receive up to 3 SMS messages per week.
+              </p>
+
+              <h4 className="text-base font-bold text-brand-dark-900 pt-2">
+                5. Message and Data Rates
+              </h4>
+              <p>
+                Message and data rates may apply depending on your mobile carrier and your mobile service plan. ORTEGA'S TRUCKING LLC is not responsible for any charges imposed by your mobile carrier.
+              </p>
+
+              <h4 className="text-base font-bold text-brand-dark-900 pt-2">
+                6. How to Opt-Out
+              </h4>
+              <p>
+                You may opt out of receiving SMS messages at any time by replying STOP to any SMS message you receive from ORTEGA'S TRUCKING LLC.
+              </p>
+              <p>
+                After replying STOP, you may receive a final confirmation message stating that you have been unsubscribed. After this, you will no longer receive SMS messages from us unless you opt in again.
+              </p>
+
+              <h4 className="text-base font-bold text-brand-dark-900 pt-2">
+                7. Help Instructions
+              </h4>
+              <p>
+                For assistance, reply HELP to any SMS message you receive from ORTEGA'S TRUCKING LLC.
+              </p>
+              <p>
+                You may also contact us directly by email at{' '}
+                <a href="mailto:info@ortegastrucking.online" className="text-brand-blue hover:underline">
+                  info@ortegastrucking.online
+                </a>{' '}
+                or by phone at{' '}
+                <a href="tel:+16782634771" className="text-brand-blue hover:underline">
+                  +1 (678) 263-4771
+                </a>.
+              </p>
+
+              <h4 className="text-base font-bold text-brand-dark-900 pt-2">
+                8. Standard SMS Disclosure
+              </h4>
+              <p>
+                By opting in, you agree to receive SMS messages from ORTEGA'S TRUCKING LLC. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out. Reply HELP for assistance. Mobile opt-in information is not shared with third parties for marketing purposes.
+              </p>
+              <p>
+                Please review our{' '}
+                {onSwitchType ? (
+                  <button
+                    type="button"
+                    onClick={() => onSwitchType('privacy')}
+                    className="text-brand-blue hover:underline cursor-pointer"
+                  >
+                    Privacy Policy
+                  </button>
+                ) : (
+                  'Privacy Policy'
+                )}{' '}
+                and these Terms and Conditions for more information.
+              </p>
+
+              <h4 className="text-base font-bold text-brand-dark-900 pt-2">
+                9. Contact Information
+              </h4>
+              <div className="space-y-1">
+                <p className="font-semibold text-brand-dark-900">ORTEGA'S TRUCKING LLC</p>
+                <p>
+                  Email:{' '}
+                  <a href="mailto:info@ortegastrucking.online" className="text-brand-blue hover:underline">
+                    info@ortegastrucking.online
+                  </a>
+                </p>
+                <p>
+                  Phone:{' '}
+                  <a href="tel:+16782634771" className="text-brand-blue hover:underline">
+                    +1 (678) 263-4771
+                  </a>
+                </p>
+                <p>
+                  Website:{' '}
+                  <a
+                    href="https://ortegastrucking.online"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-blue hover:underline"
+                  >
+                    ortegastrucking.online
+                  </a>
+                </p>
+              </div>
+
+              <p className="text-xs text-slate-500 pt-2">
+                &copy; 2026 ORTEGA'S TRUCKING LLC. All rights reserved.
               </p>
             </>
           )}

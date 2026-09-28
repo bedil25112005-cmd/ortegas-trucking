@@ -2,6 +2,8 @@
 export default {
   content: [
     "./index.html",
+    "./policy.html",
+    "./terms.html",
     "./src/**/*.{js,ts,jsx,tsx}",
     "./lib/**/*.{js,ts,jsx,tsx}",
   ],

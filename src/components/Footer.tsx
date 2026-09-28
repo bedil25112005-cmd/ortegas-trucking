@@ -3,10 +3,10 @@ import { Phone, Mail, MapPin, ArrowUp } from 'lucide-react';
 import { company } from '../lib/company';
 
 interface FooterProps {
-  onOpenLegal: (type: 'privacy' | 'terms') => void;
+  onOpenLegal?: (type: 'privacy' | 'terms') => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
+export const Footer: React.FC<FooterProps> = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -153,18 +153,18 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
           </div>
 
           <div className="flex items-center gap-6">
-            <button
-              onClick={() => onOpenLegal('privacy')}
-              className="hover:text-slate-300 transition-colors cursor-pointer"
+            <a
+              href="/policy.html"
+              className="hover:text-slate-300 transition-colors"
             >
               Privacy Policy
-            </button>
-            <button
-              onClick={() => onOpenLegal('terms')}
-              className="hover:text-slate-300 transition-colors cursor-pointer"
+            </a>
+            <a
+              href="/terms.html"
+              className="hover:text-slate-300 transition-colors"
             >
               Terms & Conditions
-            </button>
+            </a>
             <button
               onClick={scrollToTop}
               className="p-2 rounded-lg bg-brand-dark-900 text-slate-400 hover:text-white hover:bg-brand-dark-800 transition-colors cursor-pointer"

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { X, Shield, FileText } from 'lucide-react';
-import { company } from '../lib/company';
 
 interface LegalModalProps {
   isOpen: boolean;
@@ -57,28 +56,161 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, type, onClose, o
         <div className="p-6 overflow-y-auto space-y-4 text-sm text-slate-600 leading-relaxed">
           {type === 'privacy' ? (
             <>
+              <h3 className="text-lg font-bold text-brand-dark-900 pb-1">
+                Privacy Policy
+              </h3>
               <p>
-                <strong>Effective Date:</strong> January 1, 2026
+                At ORTEGA'S TRUCKING LLC, we are committed to protecting your privacy and ensuring that your personal information is handled responsibly. This Privacy Policy outlines our practices regarding the collection, use, and disclosure of your information when you visit our website and engage with our services, including any communications we provide.
+              </p>
+
+              <h4 className="text-base font-bold text-brand-dark-900 pt-2">
+                Information We Collect
+              </h4>
+              <p>
+                <strong>Personal Information:</strong> This includes information that may identify you as an individual, such as your name, email address, phone number, and postal address. We may collect this information when you contact us, request information, opt in to communications, or interact with us in other ways.
               </p>
               <p>
-                {company.name} ("we", "us", or "our") operates the website <strong>{company.website}</strong>. 
-                This Privacy Policy outlines our policies regarding the collection, use, and disclosure of personal information when you use our website.
+                <strong>Non-Personal Information:</strong> This includes information that does not directly identify you, such as aggregated data about website usage and browsing patterns. We may collect this information through cookies and similar technologies.
               </p>
-              <h4 className="text-base font-bold text-brand-dark-900 pt-2">1. Information Collection</h4>
+
+              <h4 className="text-base font-bold text-brand-dark-900 pt-2">
+                Mobile Information Non-Sharing
+              </h4>
               <p>
-                We only collect personally identifiable information that you voluntarily provide to us when submitting inquiries through our contact forms or communicating with our dispatch team, including your name, email address, phone number, and company name.
+                No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.
               </p>
-              <h4 className="text-base font-bold text-brand-dark-900 pt-2">2. Use of Information</h4>
+
+              <h4 className="text-base font-bold text-brand-dark-900 pt-2">
+                Consent and Privacy Compliance
+              </h4>
               <p>
-                We use the information collected solely to respond to your freight requests, evaluate commercial driving inquiries, coordinate transportation services, and provide customer support.
+                ORTEGA'S TRUCKING LLC respects your privacy and handles communication information responsibly. If you consent to receive communications from us, such as SMS or email updates, you agree to receive messages related to our services and other communications described at the time of consent.
               </p>
-              <h4 className="text-base font-bold text-brand-dark-900 pt-2">3. Data Protection & Sharing</h4>
+              <ul className="list-disc pl-5 space-y-1">
+                <li>
+                  Phone numbers or contact details collected with your consent will NOT be sold, rented, or shared with third parties or affiliates for marketing or promotional purposes.
+                </li>
+                <li>
+                  We do not share SMS opt-in data or consent status with any third parties.
+                </li>
+                <li>
+                  Communication frequency may vary depending on the nature of the messages.
+                </li>
+                <li>
+                  Message and data rates may apply based on your carrier's pricing.
+                </li>
+                <li>
+                  You may opt out of SMS communications at any time by replying STOP to any message, replying HELP for assistance, or contacting us directly using the details below.
+                </li>
+              </ul>
+
+              <h4 className="text-base font-bold text-brand-dark-900 pt-2">
+                SMS/Text Messaging Policy
+              </h4>
               <p>
-                We do not sell, rent, or trade your personal information to third parties. Information may only be shared with verified logistics partners as strictly necessary to fulfill contracted transportation services.
+                When you provide your mobile phone number to ORTEGA'S TRUCKING LLC, you expressly consent to receive SMS text messages from us related to your account, services, load and delivery updates, support, safety notifications, and other logistics-related information. Message frequency may vary. Message and data rates may apply. You may opt out at any time by replying STOP to any message.
               </p>
-              <h4 className="text-base font-bold text-brand-dark-900 pt-2">4. Contact Us</h4>
               <p>
-                If you have questions regarding this Privacy Policy, you may contact us at <strong>{company.email}</strong> or call <strong>{company.phone}</strong>.
+                For additional assistance, you may reply HELP or contact us using the details provided in the Contact Us section below.
+              </p>
+              <p>
+                We value your privacy. Your mobile phone number, SMS opt-in data, consent status, and message history will not be shared, sold, rented, or disclosed to any third parties for marketing or promotional purposes. We do not share this information with any third party except as required by law or as strictly necessary to operate and deliver the SMS messaging services described in this policy.
+              </p>
+              <p>
+                For our SMS communication terms, please also review our{' '}
+                {onSwitchType ? (
+                  <button
+                    type="button"
+                    onClick={() => onSwitchType('terms')}
+                    className="text-brand-blue hover:underline cursor-pointer"
+                  >
+                    Terms and Conditions
+                  </button>
+                ) : (
+                  'Terms and Conditions'
+                )}.
+              </p>
+
+              <h4 className="text-base font-bold text-brand-dark-900 pt-2">
+                How We Use Your Information
+              </h4>
+              <p>We may use the information we collect:</p>
+              <ul className="list-disc pl-5 space-y-1">
+                <li>To provide and maintain our services</li>
+                <li>To notify you about changes to our services</li>
+                <li>To provide customer support</li>
+                <li>To respond to inquiries and requests</li>
+                <li>To improve our services and website</li>
+                <li>To monitor website usage</li>
+                <li>To detect, prevent, and address technical issues</li>
+                <li>
+                  To send communications from ORTEGA'S TRUCKING LLC where you have provided appropriate consent
+                </li>
+              </ul>
+
+              <h4 className="text-base font-bold text-brand-dark-900 pt-2">
+                Data Security
+              </h4>
+              <p>
+                We take reasonable measures to protect your personal information from loss, theft, misuse, and unauthorized access. However, no method of transmission over the internet or electronic storage is completely secure. While we strive to protect your personal information, we cannot guarantee absolute security.
+              </p>
+
+              <h4 className="text-base font-bold text-brand-dark-900 pt-2">
+                Your Rights
+              </h4>
+              <p>
+                Depending on your jurisdiction, you may have rights regarding your personal information, including:
+              </p>
+              <ul className="list-disc pl-5 space-y-1">
+                <li>The right to access your personal data</li>
+                <li>The right to request correction of inaccurate data</li>
+                <li>The right to request deletion of your data</li>
+                <li>The right to object to processing</li>
+                <li>The right to request restriction of processing</li>
+                <li>The right to data portability</li>
+              </ul>
+              <p>
+                To exercise your rights, please contact us using the details below.
+              </p>
+
+              <h4 className="text-base font-bold text-brand-dark-900 pt-2">
+                Cookies
+              </h4>
+              <p>
+                Our website may use cookies and similar tracking technologies to enhance your experience. Cookies are small files that may include anonymous unique identifiers. You can configure your browser to refuse cookies or notify you when cookies are being sent. However, refusing cookies may limit your ability to use some parts of our website or services.
+              </p>
+
+              <h4 className="text-base font-bold text-brand-dark-900 pt-2">
+                Changes to This Privacy Policy
+              </h4>
+              <p>
+                We may update this Privacy Policy from time to time. Changes will be posted on this page, and you are encouraged to review it periodically. Updates become effective when posted.
+              </p>
+
+              <h4 className="text-base font-bold text-brand-dark-900 pt-2">
+                Contact Us
+              </h4>
+              <p>
+                If you have any questions about this Privacy Policy or wish to exercise your rights, please contact us at:
+              </p>
+              <div className="space-y-1">
+                <p className="font-semibold text-brand-dark-900">ORTEGA'S TRUCKING LLC</p>
+                <p>
+                  Email:{' '}
+                  <a href="mailto:info@ortegastrucking.online" className="text-brand-blue hover:underline">
+                    info@ortegastrucking.online
+                  </a>
+                </p>
+                <p>
+                  Phone:{' '}
+                  <a href="tel:+16782634771" className="text-brand-blue hover:underline">
+                    +1 (678) 263-4771
+                  </a>
+                </p>
+              </div>
+
+              <p className="text-xs text-slate-500 pt-2">
+                &copy; 2026 ORTEGA'S TRUCKING LLC. All rights reserved.
               </p>
             </>
           ) : (

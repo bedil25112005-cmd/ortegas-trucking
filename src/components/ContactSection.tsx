@@ -19,6 +19,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialInquiryTy
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [smsConsent, setSmsConsent] = useState(false);
 
   useEffect(() => {
     if (initialInquiryType) {
@@ -213,6 +214,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialInquiryTy
                   <button
                     onClick={() => {
                       setSubmitted(false);
+                      setSmsConsent(false);
                       setFormData({
                         name: '',
                         email: '',
@@ -335,6 +337,38 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialInquiryTy
                       } text-brand-dark-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-all resize-y`}
                     ></textarea>
                     {errors.message && <p className="text-xs text-red-600 mt-1 flex items-center gap-1"><AlertCircle className="w-3.5 h-3.5" />{errors.message}</p>}
+                  </div>
+
+                  <div className="flex items-start gap-3 pt-1">
+                    <input
+                      type="checkbox"
+                      id="smsConsent"
+                      name="smsConsent"
+                      checked={smsConsent}
+                      onChange={(e) => setSmsConsent(e.target.checked)}
+                      className="mt-1 h-4 w-4 rounded border-slate-300 text-brand-blue focus:ring-brand-blue cursor-pointer shrink-0"
+                    />
+                    <label
+                      htmlFor="smsConsent"
+                      className="text-xs sm:text-sm text-slate-600 leading-relaxed cursor-pointer select-none"
+                    >
+                      By checking this box, you agree to receive SMS messages about ORTEGA'S TRUCKING LLC related to delivery notifications. You may reply STOP to unsubscribe at any time. Reply HELP to (904)-908-7895 for assistance. Message &amp; data rates may apply. Messaging and frequency may vary. Learn more in our{' '}
+                      <a
+                        href="/policy.html"
+                        className="text-brand-blue font-medium hover:underline inline"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Privacy Policy
+                      </a>{' '}
+                      and{' '}
+                      <a
+                        href="/terms.html"
+                        className="text-brand-blue font-medium hover:underline inline"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Terms &amp; Conditions
+                      </a>.
+                    </label>
                   </div>
 
                   <button

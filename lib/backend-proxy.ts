@@ -4,7 +4,9 @@ const noStore={'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'};
 export async function proxy(request:Request,path:'/api/leads'|'/api/admin'){
   const url=new URL(request.url);
   const origin=request.headers.get('origin');
-  if(request.method!=='GET'&&origin!==url.origin)return Response.json({error:'Please submit from this website.'},{status:403,headers:noStore});
+  let sameHost=false;
+  try { sameHost=!!origin && new URL(origin).host===request.headers.get('host') && ['http:','https:'].includes(new URL(origin).protocol); } catch {}
+  if(request.method!=='GET'&&!sameHost)return Response.json({error:'Please submit from this website.'},{status:403,headers:noStore});
   const token=process.env.DOMINANT_BACKEND_TOKEN;
   if(!token)return Response.json({error:'Inquiry service is not configured. Please call or text (267) 571-6109.'},{status:503,headers:noStore});
   let body:string|undefined;

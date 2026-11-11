@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+.next/
+.env*
+*.tsbuildinfo
+.vercel/
+outputs/
+STAFF-ACCESS.txt
+
